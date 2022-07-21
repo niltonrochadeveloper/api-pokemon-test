@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+a.tagA {
+    text-decoration: none;
+    list-style: none;
+    background-color: transparent;
+    color: green;
+    border: .5px solid green;
+    padding: 1px 15px;
+    border-radius: 25px;
+}
+
+a.tagA:hover {
+    background-color: green;
+    color: #fff;
+    transition: .3s;
+}
+
+button a:hover {
+    color: #333;
+    transition: .3s;
+}
+
+.text-bg-primary {
+    font-weight: thin;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+.card {
+    max-width: 340px;
+    box-shadow: 2px 2px 12px -5px rgba(0,0,0,0.8);
+}
+
+img.image-pokemon {
+    width: 160px;
+}
+
+.pokemon-name {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    padding-top: 25px;
+}
+
+/* não quer funcionar essa desgraça rs*/
+li:nth-child(odd) {
+    color: red
+}
+
+.moves {
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+    height: 140px;
+}

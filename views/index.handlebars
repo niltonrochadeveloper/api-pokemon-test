@@ -1,12 +1,17 @@
-
 <section>
-    <article class="container">
-        <ul>
+    <article class="container py-5">
+
+        <div style="padding-bottom: 35px;">
+            <h1 style="padding: 0; margin: 0;">Lista de Pokémons</h1>
+            <button style="border: 0;"><a href="https://niltonrochadeveloper.github.io/portfolio/" style="border: none; padding: 0; margin: 0; color: #333; font-size: 12.5px;">por Nilton - GitHub</a></button>
+        </div>
+{{!-- <img id="img-pokemon" src="" alt=""> --}}
+        <ul> 
             {{#each pokemons}}
-            <li>{{name}}</li>
-            <span id="url-pokemon">{{url}}</span>
-            <img id="img-pokemon" src="" alt="">
-            <li><a href="/pokemon/{{name}}">clique</a></li>
+                
+                <li class="pokemon-name">{{name}}</li>              
+                <a class="tagA" href="/pokemon/{{name}}">Visualizar Pokémon</a>
+                
             {{/each}}
         </ul>        
     </article>
@@ -20,9 +25,7 @@
     id.forEach(i => {
        console.log(i) 
     }) 
-    
-
-    
+        
     
     src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + {{id}} + '.png';
 

@@ -1,24 +1,70 @@
 
-
 <section>
     <article class="container">
-        <ul>
-            {{#if pokemon}}
-            <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
-            <h3>{{pokemon.name}}</h3>
-            {{#each pokemon.types}}
-            <span class="badge rounded-pill text-bg-success">{{type.name}}</span>
-            {{/each}}
-            <br>
-            {{#each pokemon.abilities}}
-            <span class="badge rounded-pill text-bg-danger">{{is_hidden}}</span>
-            {{/each}}
-            {{#each pokemon.move}}
-            <span>{{name}}</span>
-            {{/each}}
-            {{/if}}
+        {{#if pokemon}}
+        <div class="d-flex justify-content-center m-5">
+            <div class="card col-12 p-4 d-flex justify-content-center">
+                <div class="text-center">
+                    <img class="image-pokemon" src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+                    <h3 class="p-2 pokemon-name">{{pokemon.name}}</h3>
+                </div>
+                <div style="text-align: center;">
+                    <small class="text-right">Pokémon Type</small>
+                    <br>
+                    {{#each pokemon.types}}                
+                        <small class="px-3 badge rounded-pill text-bg-primary">{{type.name}}</small>                
+                    {{/each}}
+                </div>
+                <br>
+                <div class="text-center">                                        
+                    {{#each pokemon.abilities}}                                  
+                        <small class="px-3 badge rounded-pill text-bg-danger">{{ability.name}}</small>                
+                    {{/each}}
+                    <br>
+                    <small class="text-right">Hidden Ability</small>
+                </div>
+                <br>
+                <div class="text-center moves">
+                    <small class="text-right "><b>Golpes Especiais / Moves</b></small>
+                    {{#each pokemon.moves}}
+                        <span id="moves">{{move.name}}</span>                        
+                    {{/each}}
+                </div>  
+            </div>            
+        </div>
+        <div class="text-center">
+            <a class="tagA" href="/">Voltar para a Home</a>
+        </div>  
 
-            
-        </ul>        
+        {{else}}
+
+        <div class="p-3 text-center mt-5">
+            Erro ao processar o Banco de Pokémons!
+        </div>
+
+        {{/if}}      
     </article>
 </section>
+
+<script>
+  
+var moves = document.querySelectorAll('#moves')
+
+    function troca(){
+        
+
+        for (i = 0; i < moves.length; ++i) {
+            var teste = moves[i].textContent.length % 5 === 0;
+            var outro = moves[i].textContent.length > 5;
+            if(!teste) {
+                moves[i].parentNode.removeChild(moves[i])                
+            }            
+        }
+    }
+
+
+    troca()
+
+
+
+</script>

@@ -6,5 +6,6 @@ const indexController = require('../controllers/indexController')
 //home
 router.get('/', indexController.index)
 router.get('/pokemon/:name', indexController.pokemon)
+router.get('/404', indexController.paginaNaoEncontrada)
 
 module.exports = router

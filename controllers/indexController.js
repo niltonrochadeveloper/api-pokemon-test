@@ -4,11 +4,9 @@ var axios = require('axios');
 const indexController = {
     index: async (req, res) => {
 
-
-
         var config = {
         method: 'get',
-        url: 'https://pokeapi.co/api/v2/pokemon/',
+        url: 'https://pokeapi.co/api/v2/pokemon?limit=12',
         headers: { }
         };
 
@@ -16,23 +14,6 @@ const indexController = {
         .then((response) => {
 
         var pokemons = response.data.results
-
-        // for(var i = 0; i < pokemons.length; i++) {
-            var config2 = {
-                method: 'get',
-                url: 'https://pokeapi.co/api/v2/pokemon/' + pokemons[0],
-                headers: { }
-                };
-
-                // axios(config2[i])((responses) => {
-                    console.log(config2)
-                // }).catch((error) => {
-                //     console.log('deu erro aqui')
-                // })
-                
-        // }
-       
-        
                 
         res.render('index', {
             title: 'API de Pokémons | Trigg - Test',
@@ -42,14 +23,16 @@ const indexController = {
                 
         
     }).catch((error) => {
-        console.log('deu erro aqui')
+        console.log('deu erro aqui: '+ error)
     })
 
         
     },
+
     pokemon: async (req, res) => {
 
-        const { name } = req.params
+        try {
+            const { name } = req.params
 
         var config = {
         method: 'get',
@@ -60,45 +43,34 @@ const indexController = {
         axios(config)
         .then(function (response) {
         
-        var pokemon = response.data
-
-        // console.log(pokemon)
-        // console.log(pokemon.types.name)
-        // console.log(pokemon.abilities.is_hidden)
-        // console.log(pokemon.moves.length)
-
-        
-        // console.log(teste)
-
-        for(var i = 0; i < pokemon.moves.length; i++) {
-        if (i % 2 === 0) {
-
-            
-
-            console.log(i)
-            
-            }
-
-            teste = pokemon.moves.slice(0, 5)
-            console.log(teste)
-
-        }
+        var pokemon = response.data     
         
         res.render('pokemon', {
-            title: 'API de Pokémons | Trigg - Test',
+            title: pokemon.name + ' | API de Pokémons | Trigg - Test',
             description: 'Teste aplicado pela empresa Trigg - API de Pokémons',
-            pokemon: pokemon   
+            pokemon: pokemon
+        })
+    })
+        .catch((error) => {
+            console.log('deu erro aqui: '+ error)
         })
 
-        })
-        .catch(function (error) {
-            console.log(error);
-            res.render('404')
-        });
+        } catch (error) {
+            console.log('deu erro aqui: '+ error)
+        }
 
+        
+    },
 
+    paginaNaoEncontrada: async (req, res) => {
 
+        try {
+            
+            res.render('404');
 
+        } catch (error) {
+            console.log('deu erro aqui: '+ error)
+        }
         
     }
 
