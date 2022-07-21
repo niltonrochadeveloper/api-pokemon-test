@@ -1,0 +1,24 @@
+
+
+<section>
+    <article class="container">
+        <ul>
+            {{#if pokemon}}
+            <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}">
+            <h3>{{pokemon.name}}</h3>
+            {{#each pokemon.types}}
+            <span class="badge rounded-pill text-bg-success">{{type.name}}</span>
+            {{/each}}
+            <br>
+            {{#each pokemon.abilities}}
+            <span class="badge rounded-pill text-bg-danger">{{is_hidden}}</span>
+            {{/each}}
+            {{#each pokemon.move}}
+            <span>{{name}}</span>
+            {{/each}}
+            {{/if}}
+
+            
+        </ul>        
+    </article>
+</section>

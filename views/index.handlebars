@@ -1,0 +1,31 @@
+
+<section>
+    <article class="container">
+        <ul>
+            {{#each pokemons}}
+            <li>{{name}}</li>
+            <span id="url-pokemon">{{url}}</span>
+            <img id="img-pokemon" src="" alt="">
+            <li><a href="/pokemon/{{name}}">clique</a></li>
+            {{/each}}
+        </ul>        
+    </article>
+</section>
+
+<script>
+    {{!-- const id = document.querySelectorAll('url-pokemon')
+    {{!-- id.textContent.substr(-2).replace('/', ''); --}}
+    const img = document.querySelectorAll('img-pokemon')
+
+    id.forEach(i => {
+       console.log(i) 
+    }) 
+    
+
+    
+    
+    src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + {{id}} + '.png';
+
+    console.log(id) --}}
+
+</script>
